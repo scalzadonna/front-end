@@ -15,9 +15,15 @@ pipeline {
         stage('Test') { 
             steps {
                 echo 'Testing...'
-                sh 'npm run tests'
+                sh 'npm run test'
             }
         }
+	stage('Coverage'){
+	    steps {
+		echo 'Coverage reports...'
+		sh 'npm run coverage'
+	    }
+	}
         stage('Deploy') { 
             steps {
                 echo 'Packaging'
